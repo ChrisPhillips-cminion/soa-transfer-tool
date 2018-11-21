@@ -149,23 +149,24 @@ Handlebars.registerHelper('trimClassifications', function(classifications) {
     var toReturn = [];
 
 		console.log('************************************')
-		console.log('**'+classifications)
+		console.log('** trimClassifications in '+classifications)
 		console.log('************************************')
-    classifications.forEach(function(classification) {
+    // classifications.forEach(function(classification) {
+		for (var classification in classifications) {
 			console.log('************************************')
-			console.log('** in FOR LOOP '+classification)
+			console.log('** trimClassifications FOR LOOP '+classification)
 			console.log('************************************')
         toReturn.push("    - " + removeContentBeforeFirstHash(classification));
-    });
+    };
 		console.log('************************************')
-		console.log('** in Returning from  trimClassifications '+toReturn.join('\n'))
+		console.log('** in Returning from  exit '+toReturn.join('\n'))
 		console.log('************************************')
     return toReturn.join('\n');
 })
 
 function removeContentBeforeFirstHash(passedString) {
 	console.log('************************************')
-	console.log('** in removeContentBeforeFirstHash '+passedString)
+	console.log('** in removeContentBeforeFirstHash in '+passedString)
 	console.log('************************************')
     var hashLoc = passedString.indexOf('#');
     if (hashLoc < 0) {
@@ -173,7 +174,7 @@ function removeContentBeforeFirstHash(passedString) {
     }
     var theString = passedString.substring(hashLoc);
 		console.log('************************************')
-		console.log('** in removeContentBeforeFirstHash  returns'+new Handlebars.SafeString(theString))
+		console.log('** in removeContentBeforeFirstHash  exit '+new Handlebars.SafeString(theString))
 		console.log('************************************')
     return new Handlebars.SafeString(theString)
 }
