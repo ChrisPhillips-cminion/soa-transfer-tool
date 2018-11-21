@@ -136,6 +136,24 @@ function _handlerOnlyClassified(context, classification, options) {
 }
 Handlebars.registerHelper("onlyClassified", _handlerOnlyClassified);
 
+
+
+Handlebars.registerHelper('trimClassifications', function(classifications) {
+		var toReturn = [];
+		classifications.forEach(removeContentBeforeFirstHash(classification) {
+			toReturn.push("    - "+classification.)
+		}
+		return toReturn;
+});
+
+function removeContentBeforeFirstHash(passedString) {
+	var hashLoc = passedString.indexOf('#');
+	if (hashLoc < 0 )  {
+		hasLoc = 0;
+	}
+	var theString = passedString.substring(hasLoc);
+	return new Handlebars.SafeString(theString)
+}
 /* Helper that is called for an array of SLDs or a single SLD and finds the first endpoint that is classified
  * with the provided classification URIs (multiple), then returns its name.
  */

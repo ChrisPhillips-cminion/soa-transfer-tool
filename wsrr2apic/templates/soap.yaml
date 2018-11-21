@@ -17,8 +17,11 @@ x-ibm-configuration:
       -
         proxy:
           title: "proxy"
-          target-url: '{{endpointNameByClassifications version.slds "http://www.ibm.com/xmlns/prod/serviceregistry/6/1/GovernanceProfileTaxonomy#Production"}}' 
+          target-url: '{{endpointNameByClassifications version.slds "http://www.ibm.com/xmlns/prod/serviceregistry/6/1/GovernanceProfileTaxonomy#Production"}}'
   testable: true
   enforced: true
   cors:
     enabled: true
+  categories:
+{{trimClassifications version.classifications}}
+{{trimClassifications classifications}}
