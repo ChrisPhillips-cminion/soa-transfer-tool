@@ -147,35 +147,36 @@ Handlebars.registerHelper("onlyClassified", _handlerOnlyClassified);
 
 Handlebars.registerHelper('trimClassifications', function(classifications) {
     var toReturn = [];
-
-		console.log('************************************')
-		console.log('** trimClassifications in '+classifications)
-		console.log('************************************')
-    // classifications.forEach(function(classification) {
-		for (var classification of classifications) {
-			console.log('************************************')
-			console.log('** trimClassifications FOR LOOP '+classification)
-			console.log('************************************')
-        toReturn.push("    - " + removeContentBeforeFirstHash(classification));
-    };
-		console.log('************************************')
-		console.log('** in Returning from  exit '+toReturn.join('\n'))
-		console.log('************************************')
+    if (classifications) {
+        console.log('************************************')
+        console.log('** trimClassifications in ' + classifications)
+        console.log('************************************')
+        // classifications.forEach(function(classification) {
+        for (var classification of classifications) {
+            console.log('************************************')
+            console.log('** trimClassifications FOR LOOP ' + classification)
+            console.log('************************************')
+            toReturn.push("    - " + removeContentBeforeFirstHash(classification));
+        };
+        console.log('************************************')
+        console.log('** in Returning from  exit ' + toReturn.join('\n'))
+        console.log('************************************')
+    }
     return toReturn.join('\n');
 })
 
 function removeContentBeforeFirstHash(passedString) {
-	console.log('************************************')
-	console.log('** in removeContentBeforeFirstHash in '+passedString)
-	console.log('************************************')
+    console.log('************************************')
+    console.log('** in removeContentBeforeFirstHash in ' + passedString)
+    console.log('************************************')
     var hashLoc = passedString.indexOf('#');
     if (hashLoc < 0) {
         hashLoc = 0;
     }
     var theString = passedString.substring(hashLoc);
-		console.log('************************************')
-		console.log('** in removeContentBeforeFirstHash  exit '+new Handlebars.SafeString(theString))
-		console.log('************************************')
+    console.log('************************************')
+    console.log('** in removeContentBeforeFirstHash  exit ' + new Handlebars.SafeString(theString))
+    console.log('************************************')
     return new Handlebars.SafeString(theString)
 }
 /* Helper that is called for an array of SLDs or a single SLD and finds the first endpoint that is classified
