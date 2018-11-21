@@ -147,15 +147,23 @@ Handlebars.registerHelper("onlyClassified", _handlerOnlyClassified);
 
 Handlebars.registerHelper('trimClassifications', function(classifications) {
     var toReturn = [];
+
+		console.log('************************************')
+		console.log('**'+classifications)
+		console.log('************************************')
     classifications.forEach(function(classification) {
+			console.log('************************************')
+			console.log('** in FOR LOOP '+classification)
+			console.log('************************************')
         toReturn.push("    - " + removeContentBeforeFirstHash(classification));
-
-
     });
-    return toReturn;
+    return toReturn.toString();
 })
 
 function removeContentBeforeFirstHash(passedString) {
+	console.log('************************************')
+	console.log('** in removeContentBeforeFirstHash '+passedString)
+	console.log('************************************')
     var hashLoc = passedString.indexOf('#');
     if (hashLoc < 0) {
         hashLoc = 0;
