@@ -152,7 +152,7 @@ Handlebars.registerHelper('trimClassifications', function(classifications) {
 		console.log('** trimClassifications in '+classifications)
 		console.log('************************************')
     // classifications.forEach(function(classification) {
-		for (var classification in classifications) {
+		for (var classification of classifications) {
 			console.log('************************************')
 			console.log('** trimClassifications FOR LOOP '+classification)
 			console.log('************************************')
