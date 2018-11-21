@@ -157,7 +157,10 @@ Handlebars.registerHelper('trimClassifications', function(classifications) {
 			console.log('************************************')
         toReturn.push("    - " + removeContentBeforeFirstHash(classification));
     });
-    return toReturn.toString();
+		console.log('************************************')
+		console.log('** in Returning from  trimClassifications '+toReturn.join('\n'))
+		console.log('************************************')
+    return toReturn.join('\n');
 })
 
 function removeContentBeforeFirstHash(passedString) {
@@ -169,6 +172,9 @@ function removeContentBeforeFirstHash(passedString) {
         hashLoc = 0;
     }
     var theString = passedString.substring(hashLoc);
+		console.log('************************************')
+		console.log('** in removeContentBeforeFirstHash  returns'+new Handlebars.SafeString(theString))
+		console.log('************************************')
     return new Handlebars.SafeString(theString)
 }
 /* Helper that is called for an array of SLDs or a single SLD and finds the first endpoint that is classified
