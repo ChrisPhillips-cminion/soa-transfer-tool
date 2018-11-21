@@ -158,9 +158,9 @@ Handlebars.registerHelper('trimClassifications', function(classifications) {
 function removeContentBeforeFirstHash(passedString) {
     var hashLoc = passedString.indexOf('#');
     if (hashLoc < 0) {
-        hasLoc = 0;
+        hashLoc = 0;
     }
-    var theString = passedString.substring(hasLoc);
+    var theString = passedString.substring(hashLoc);
     return new Handlebars.SafeString(theString)
 }
 /* Helper that is called for an array of SLDs or a single SLD and finds the first endpoint that is classified
